@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# This file is a command-module for Dragonfly by Christo Butcher and Caster by Synkarius
+# This file is a command-module for Dragonfly by Christo Butcher and castervoice by Synkarius
 # Created by Vojtěch Drábek on 2018-05
 # Licensed under the LGPL, see <http://www.gnu.org/licenses/>
 #
@@ -13,12 +13,13 @@ Example: "unicode zero three brov one" prints "α"
 
 from dragonfly import (Grammar, AppContext, Dictation, Mouse, Key, Repeat, Function, Choice)
 
-from caster.lib import context, control
-from caster.lib import settings
-from caster.lib.dfplus.additions import IntegerRefST
-from caster.lib.dfplus.merge import gfilter
-from caster.lib.dfplus.merge.mergerule import MergeRule
-from caster.lib.dfplus.state.short import R
+from castervoice.lib import context, control
+from castervoice.lib.ctrl.mgr.rule_details import RuleDetails
+from castervoice.lib import settings
+from castervoice.lib.merge.additions import IntegerRefST
+from castervoice.lib.merge.mergerule import MergeRule
+from castervoice.lib.merge.state.short import R
+from castervoice.lib.const import CCRType
 
 def process_unicode(n1, n2, n3, n4, n5='', n6=''):
     hex = str(n1) + str(n2) + str(n3) + str(n4) + str(n5) + str(n6)
@@ -28,7 +29,7 @@ def process_unicode(n1, n2, n3, n4, n5='', n6=''):
     context.paste_string_without_altering_clipboard(character)
 
 class UnicodeRule(MergeRule):
-    pronunciation = "unicode input"
+    __name__ = "unicode input"
     
     mapping = {
        "unicode <n1> <n2> <n3> <n4> [<n5> [<n6>]]":
@@ -73,4 +74,5 @@ class UnicodeRule(MergeRule):
 
 #---------------------------------------------------------------------------
 
-control.nexus().merger.add_global_rule(UnicodeRule())
+def get_rule():
+    return UnicodeRule, RuleDetails(ccrtype=CCRType.GLOBAL)

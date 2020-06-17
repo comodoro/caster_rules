@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# This file is a command-module for Dragonfly by Christo Butcher and Caster by Synkarius
+# This file is a command-module for Dragonfly by Christo Butcher and castervoice by Synkarius
 # Created by Vojtech Drábek on 2018-05
 # Licensed under the LGPL, see <http://www.gnu.org/licenses/>
 #
 """
 Command-module for Unicode alphabet dictation
-Enhances built-in Caster alphabet with some accents
+Enhances built-in castervoice alphabet with some accents
 Example: "big uniform ring" prints "Ů"
 
 """
@@ -13,10 +13,11 @@ import unicodedata
 
 from dragonfly import Function, Choice, Text, Key
 
-from caster.lib import context, control, alphanumeric
-from caster.lib.dfplus.merge.ccrmerger import CCRMerger
-from caster.lib.dfplus.merge.mergerule import MergeRule
-from caster.lib.dfplus.state.short import R
+from castervoice.lib.ctrl.mgr.rule_details import RuleDetails
+from castervoice.lib import context, control
+from castervoice.lib.merge.mergerule import MergeRule
+from castervoice.lib.merge.state.short import R
+from castervoice.lib.const import CCRType
 
 def get_alphabet_choice(spec):
     return Choice(
@@ -67,6 +68,7 @@ def write_letter(big, letter, accent=None):
 
 class UnicodeAlphabet(MergeRule):
     pronunciation = "unicode alphabet"
+    __name__ = "unicode alphabet"
 
     mapping = {
         "[<big>] <letter> [<accent>]":
@@ -95,5 +97,5 @@ class UnicodeAlphabet(MergeRule):
         "big": "",
     }
 
-
-control.nexus().merger.add_global_rule(UnicodeAlphabet())
+def get_rule():
+    return UnicodeAlphabet, RuleDetails(ccrtype=CCRType.GLOBAL)
