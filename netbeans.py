@@ -76,6 +76,32 @@ class NetbeansRule(MappingRule):
         # The same
         # "add comment lines": R(Key('c-slash')),
         "delete current line": R(Key('c-e')),
+
+        # Navigating through Source Code
+        "go to type": R(Key('c-o')),
+        "go to file": R(Key('as-o')),
+        # Does not work even in netbeans
+        # "go to Jay unit test": R(Key('cs-t')),
+        "go to source": R(Key('cs-b')),
+        "go to declaration": R(Key('c-b')),
+        "go to line": R(Key('c-g')),
+        "toggle bookmark": R(Key('cs-m')),
+        "next bookmark": R(Key('cs-.')),
+        "previous bookmark": R(Key('cs-,')),
+        "next error": R(Key('c-.')),
+        "previous error": R(Key('c-,')),
+        "select next element": R(Key('as-.')),
+        "select previous element": R(Key('as-,')),
+        "select in projects": R(Key('cs-1')),
+        "select in files": R(Key('cs-2')),
+        "select in favorites": R(Key('cs-3')),
+        "matching bracket": R(Key('as-[')),
+        "next word match": R(Key('c-k')),
+        "previous word match": R(Key('cs-k')),
+        "back to last edit": R(Key('a-left')),
+        "forward to last edit": R(Key('a-right')),
+        "next marked occurrence": R(Key('a-up')),
+        "previous marked occurrence": R(Key('a-down')),
     }
 
 
