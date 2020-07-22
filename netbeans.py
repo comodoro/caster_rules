@@ -14,7 +14,7 @@ class NetbeansRule(MappingRule):
     pronunciation = "net beans"
 
     mapping = {
-        # Debugging
+        # Debugging From the keystroke sheet
         "debug project": R(Key('c-f5')),
         "debug file": R(Key('cs-f5')),
         "debug test": R(Key('cs-f6')),
@@ -28,6 +28,27 @@ class NetbeansRule(MappingRule):
         "breakpoint": R(Key('c-f8')),
         "new breakpoinr": R(Key('cs-f8')),
         "new watch": R(Key('cs-f7')),
+
+        # Debugging windows
+        "show variables": R(Key('as-1')),
+        "show watches": R(Key('as-2')),
+        "show call stack": R(Key('as-3')),
+        "show loaded classes": R(Key('as-4')),
+        "show breakpoints": R(Key('as-5')),
+        "show sessions": R(Key('as-6')),
+        "show threads": R(Key('as-7')),
+        "show sources": R(Key('as-8')),
+        "show debugging": R(Key('as-9')),
+
+        # Window menu tools
+        "show projects": R(Key('c-1')),
+        "show files": R(Key('c-2')),
+        "show favorites": R(Key('c-3')),
+        "show services": R(Key('c-5')),
+        "show navigator": R(Key('c-7')),
+        "show action items": R(Key('c-6')),        
+        "show tasks": R(Key('cs-6')),        
+        "show output": R(Key('c-4')),        
 
         # Compiling, Testing, and Running
         "compile": R(Key('f9')),
@@ -52,7 +73,8 @@ class NetbeansRule(MappingRule):
         "inspect members": R(Key('c-f12')),
         "inspect hierarchy": R(Key('a-f12')),
         "remove comment lines": R(Key('cs-c')),
-        "add comment lines": R(Key('c-slash')),
+        # The same
+        # "add comment lines": R(Key('c-slash')),
         "delete current line": R(Key('c-e')),
     }
 
